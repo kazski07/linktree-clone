@@ -1,74 +1,103 @@
-/* Reset basic margin rules & set page background */
+/* Basic reset and smooth dark-purple background */
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    /* Smooth modern linear gradient layout background */
-    background: linear-gradient(135deg, #121212 0%, #2c3e50 100%);
+    padding: 24px;
+    font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #f4f1ff;
+    background:
+        radial-gradient(circle at 10% 10%, rgba(198, 128, 255, 0.35), transparent 42%),
+        radial-gradient(circle at 90% 90%, rgba(126, 74, 255, 0.35), transparent 44%),
+        linear-gradient(150deg, #13081f 0%, #23103f 42%, #2f1454 100%);
 }
 
-/* Central Card Box Properties */
+/* Card with glassmorphism effect */
 .card-container {
+    width: min(420px, 100%);
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
-    padding: 30px;
-    border-radius: 16px;
-    width: 90%;
-    max-width: 400px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    padding: 34px 28px;
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+    backdrop-filter: blur(14px);
+    box-shadow:
+        0 24px 60px rgba(8, 0, 24, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
-/* Thumbnail Profile Controls */
+/* Profile image styling */
 .profile-pic {
-    width: 100px;
-    height: 100px;
+    width: 112px;
+    height: 112px;
     object-fit: cover;
     border-radius: 50%;
-    margin-bottom: 15px;
-    border: 3px solid #ffffff;
+    margin-bottom: 14px;
+    border: 3px solid rgba(238, 219, 255, 0.85);
+    box-shadow: 0 8px 26px rgba(114, 52, 255, 0.45);
 }
 
-/* Header Text Layout elements */
+/* Text hierarchy */
 .username {
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin: 5px 0;
+    margin: 0;
+    font-size: 1.52rem;
+    letter-spacing: 0.2px;
 }
 
 .description {
-    font-size: 0.95rem;
-    color: #b3b3b3;
-    margin-bottom: 25px;
+    margin: 10px 0 26px;
+    color: #d9cbff;
+    font-size: 0.98rem;
 }
 
-/* Stack inner links vertically using Flexbox */
+/* Link list */
 .links-container {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-/* Core Link Button Presentation Styles */
+/* Purple first, soft glow buttons */
 .link-btn {
     display: block;
-    padding: 14px;
     text-decoration: none;
-    color: #121212;
-    background-color: #ffffff;
-    font-weight: 600;
-    border-radius: 8px;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 14px 16px;
+    border-radius: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #8f4cff 0%, #6929ff 100%);
+    box-shadow:
+        0 8px 18px rgba(103, 47, 237, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
-/* Visual Pointer Hover Transformations */
 .link-btn:hover {
-    background-color: #e0e0e0;
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.01);
+    filter: brightness(1.06);
+    box-shadow:
+        0 14px 24px rgba(103, 47, 237, 0.48),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.link-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 420px) {
+    .card-container {
+        padding: 28px 20px;
+        border-radius: 22px;
+    }
+
+    .username {
+        font-size: 1.35rem;
+    }
 }
